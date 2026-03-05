@@ -1,0 +1,5 @@
+[tool.poetry]
+name = "quant_agent_research"
+version = "0.1.0"
+description = "A strategy for quant agent research"
+authors = ["RinDragonK <rindragonk@example.com>"]

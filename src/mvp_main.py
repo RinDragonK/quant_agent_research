@@ -1,7 +1,11 @@
-# Main MVP Agent Controller
+# Main MVP agent controller
+class MVPAgent:
+    def __init__(self):
+        pass
 
-def main():
-    print('MVP agent is running')
+    def run(self):
+        print('Running MVP Agent')
 
 if __name__ == '__main__':
-    main()
+    agent = MVPAgent()
+    agent.run()
