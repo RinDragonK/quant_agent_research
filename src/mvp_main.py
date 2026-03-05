@@ -1,11 +1,7 @@
-# Minimal Viable Product (MVP) for Agent Framework
+# Main MVP Agent Controller
 
-This script demonstrates the basic structure of an agent framework.
-
-class Agent:
-    def __init__(self):
-        print('Agent initialized')
+def main():
+    print('MVP agent is running')
 
 if __name__ == '__main__':
-    agent = Agent()
-    # Additional code to start the agent's functionality can be added here
+    main()
