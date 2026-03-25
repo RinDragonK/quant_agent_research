@@ -1,0 +1,81 @@
+# 量化投研系统 - Git忽略文件
+
+# 数据文件
+data/raw/*.csv
+data/processed/*.csv
+data/factors/*.csv
+data/*.csv
+data/*.json
+data/*.xlsx
+data/*.parquet
+
+# 策略文件
+strategies/*.json
+strategies/*.yaml
+strategies/*.txt
+
+# 回测结果
+backtests/*.csv
+backtests/*.json
+backtests/*.html
+backtests/*.pdf
+
+# 报告
+reports/*.html
+reports/*.pdf
+reports/*.csv
+reports/charts/*.png
+reports/charts/*.jpg
+reports/charts/*.svg
+
+# 日志文件
+*.log
+logs/
+*.txt
+
+# 临时文件
+*.tmp
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 环境
+.env
+.venv/
+venv/
+ENV/
+env.bak/
+*.venv
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 输出
+*.out
+*.err
+
+# 配置
+config/local_config.yaml
+config/secrets.yaml
+
+# 测试
+test_*.csv
+test_*.json
+test_charts/

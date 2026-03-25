@@ -1,0 +1,113 @@
+# Multi-Agent 量化投研自动化系统配置文件
+
+# 通用配置
+general:
+  log_file: logs/quant_agent.log
+  data_dir: data
+  results_dir: backtests
+  reports_dir: reports
+
+# 数据智能体配置
+agents:
+  data:
+    data_dir: data/raw
+    source: yfinance
+    assets:
+      - 600036.SH    # 招商银行
+      - 000001.SZ    # 平安银行
+      - 601318.SH    # 中国平安
+    start_date: "2025-03-19"
+    end_date: "2026-03-19"
+    save_format: csv
+    cache_enabled: true
+
+  # 因子智能体配置
+  factor:
+    factor_dir: data/factors
+    factors:
+      - ma5
+      - ma10
+      - ma20
+      - ma60
+      - ema10
+      - ema20
+      - rsi
+      - macd
+      - kdj
+      - bollinger
+      - atr
+      - volatility_20
+      - momentum_10
+      - obv
+    standardize: true
+    winsorize: true
+
+  # 策略智能体配置
+  strategy:
+    strategy_dir: strategies
+    strategy_type: trend_following
+    optimization: true
+    risk_constraints:
+      max_drawdown: 0.25
+      sharpe_ratio: 0.8
+      win_rate: 0.45
+    initial_capital: 1000000
+
+  # 回测智能体配置
+  backtest:
+    backtest_dir: backtests
+    engine: vectorbt
+    initial_capital: 1000000
+    commission: 0.0003
+    slippage: 0.001
+    benchmark: 000300.SH
+    optimization: false
+
+  # 风险智能体配置
+  risk:
+    report_dir: reports
+    risk_free_rate: 0.03
+    target_return: 0.0
+    confidence_level: 0.95
+    var_threshold: 0.02
+    max_drawdown_threshold: 0.15
+    volatility_threshold: 0.25
+    beta_threshold: 1.2
+
+  # 报告智能体配置
+  report:
+    report_dir: reports
+    template_dir: templates
+    title: "量化投研报告"
+    author: "Quant Agent System"
+    output_formats:
+      - html
+    include_charts: true
+    include_tables: true
+    include_appendix: false
+
+# 管道配置
+pipeline:
+  stop_on_error: true
+  parallel_execution: false
+  log_level: INFO
+
+# 数据源配置
+data_sources:
+  tushare:
+    token: ""
+    api_url: "https://api.tushare.pro"
+
+  yfinance:
+    proxy: ""
+
+  akshare:
+    proxy: ""
+
+# 回测参数
+backtest_params:
+  initial_capital: 1000000
+  commission: 0.0003
+  slippage: 0.001
+  margin: 0.1
+  frequency: 1d
