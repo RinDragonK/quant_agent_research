@@ -1,0 +1,5 @@
+# MVP dependencies
+numpy
+pandas
+matplotlib
+scikit-learn
